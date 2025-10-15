@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    /* 基本选项 */
+    "target": "es2022",
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    
+    /* JavaScript支持 */
+    "allowJs": true,
+    
+    /* 输出选项 */
+    "sourceMap": true,
+    "outDir": "./dist",
+    
+    /* 互操作约束 */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    
+    /* 类型检查 */
+    "strict": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": true,
+    "stripInternal": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "build"
+  ]
+}

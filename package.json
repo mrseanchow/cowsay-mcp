@@ -1,0 +1,75 @@
+{
+    "name": "cowsay-mcp",
+    "version": "1.0.0",
+    "description": "Cowsay MCP Server, providing ASCII art cow capabilities for LLMs.",
+    "private": false,
+    "type": "module",
+    "keywords": [
+        "AI",
+        "LLM",
+        "MCP",
+        "ModelContextProtocol",
+        "Cowsay MCP Server",
+        "LLM Tool",
+        "cowsay"
+    ],
+    "author": "Sean Chow <mrseanchow@gmail.com>",
+    "license": "MIT",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": {
+        "cowsay-mcp": "dist/index.js"
+    },
+    "files": [
+        "dist/**"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "scripts": {
+        "dev": "tsx src/index.ts",
+        "build": "tsup && node -e \"require('fs').chmodSync('dist/index.js', '755')\"",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix"
+    },
+    "tsup": {
+        "entry": [
+            "src/index.ts"
+        ],
+        "outDir": "dist",
+        "format": [
+            "cjs",
+            "esm"
+        ],
+        "splitting": false,
+        "dts": true,
+        "clean": true,
+        "sourcemap": true
+    },
+    "exports": {
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js"
+        }
+    },
+    "devDependencies": {
+        "@eslint/js": "^8.56.0",
+        "@types/node": "^22.13.10",
+        "@typescript-eslint/eslint-plugin": "^7.0.0",
+        "@typescript-eslint/parser": "^7.0.0",
+        "cowsay": "^1.5.0",
+        "eslint": "^8.56.0",
+        "tsup": "^8.4.0",
+        "tsx": "^4.20.5",
+        "typescript": "^5.3.3",
+        "typescript-eslint": "^7.0.0"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.7.0",
+        "cowsay": "^1.5.0"
+    }
+}
