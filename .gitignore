@@ -1,35 +1,5 @@
-# Dependencies
-node_modules/
+.smithery
+node_modules
+.env
+dist
 package-lock.json
-
-# Build directory
-dist/
-
-# Log files
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# ESLint
-.eslintcache
-
-# Runtime data
-.DS_Store
-
-# Editor directories and files
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Coverage directory
-coverage/
-
-# Temporary files
-tmp/
-temp/
