@@ -12,7 +12,9 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import cowsay from 'cowsay';
 import { COWSAY, COWTHINK, LIST_COWS, GET_VERSION } from './tools.js';
-
+import { exec } from 'child_process';
+import { promisify } from 'util';
+const execAsync = promisify(exec);
 // Server version
 export const version = '2.0.0';
 
@@ -148,37 +150,56 @@ export default function createServer({
 
 export async function generateCowsay(message: string, cow: string): Promise<string> {
     try {
-        const options = cow !== 'default' ? { f: cow } : {};
-        return cowsay.say({ text: message, ...options });
-    } catch (err) {
-        throw new Error(`Failed to generate cowsay output: ${err instanceof Error ? err.message : String(err)}`);
+        const cowOption = cow !== 'default' ? `-f ${cow}` : '';
+        const escapedMessage = message.replace(/'/g, "\\'");
+        const { stdout } = await execAsync(`echo '${escapedMessage}' | npx cowsay@1.6.0 ${cowOption}`);
+        return stdout;
+    } catch (error) {
+        try {
+            const options = cow !== 'default' ? { f: cow } : {};
+            return cowsay.say({ text: message, ...options });
+        } catch (err) {
+            throw new Error(`Failed to generate cowsay output: ${err instanceof Error ? err.message : String(err)}`);
+        }
     }
 }
 
 export async function generateCowthink(message: string, cow: string): Promise<string> {
     try {
-        const options = cow !== 'default' ? { f: cow } : {};
-        return cowsay.think({ text: message, ...options });
-    } catch (err) {
-        throw new Error(`Failed to generate cowthink output: ${err instanceof Error ? err.message : String(err)}`);
+        const cowOption = cow !== 'default' ? `-f ${cow}` : '';
+        const escapedMessage = message.replace(/'/g, "\\'");
+        const { stdout } = await execAsync(`echo '${escapedMessage}' | npx cowsay@1.6.0 -T '\\' ${cowOption}`);
+        return stdout;
+    } catch (error) {
+        try {
+            const options = cow !== 'default' ? { f: cow } : {};
+            return cowsay.think({ text: message, ...options });
+        } catch (err) {
+            throw new Error(`Failed to generate cowthink output: ${err instanceof Error ? err.message : String(err)}`);
+        }
     }
 }
 
 
 export async function listCows(): Promise<string[]> {
     try {
-        const cowsList = await new Promise<string[]>((resolve, reject) => {
-            cowsay.list((error, cow_names) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(cow_names || []);
-                }
-            });
-        });
-        return cowsList;
+        const { stdout } = await execAsync(`npx cowsay@1.6.0 -l`);
+        return stdout.split('\n').filter(Boolean);
     } catch (error) {
-        return ['default', 'small', 'tux', 'moose', 'sheep', 'dragon', 'elephant', 'skeleton', 'stimpy'];
+        try {
+            const cowsList = await new Promise<string[]>((resolve, reject) => {
+                cowsay.list((error, cow_names) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(cow_names || []);
+                    }
+                });
+            });
+            return cowsList;
+        } catch (error) {
+            return ['default', 'small', 'tux', 'moose', 'sheep', 'dragon', 'elephant', 'skeleton', 'stimpy'];
+        }
     }
 }
 
@@ -197,7 +218,7 @@ async function main() {
         },
     });
     // print server url and version
-    // console.log(`Server Version: ${version}`);
+    // console.log(`Server Version: ${ version }`);
     // Start receiving messages on stdin and sending messages on stdout
     const transport = new StdioServerTransport();
     await server.connect(transport);
