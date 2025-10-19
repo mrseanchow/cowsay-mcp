@@ -14,10 +14,10 @@ Cowsay MCP Server, providing ASCII art cow capabilities for LLMs. This implement
 
 ### Installing via Smithery
 
-To install cowsay-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@mrseanchow/cowsay-mcp):
+To install cowsay-mcp automatically via [Smithery](https://smithery.ai/server/@mrseanchow/cowsay-mcp):
 
 ```bash
-npx -y @smithery/cli install @mrseanchow/cowsay-mcp --client claude
+npx -y @smithery/cli install @mrseanchow/cowsay-mcp
 ```
 
 ### Manual Installation
