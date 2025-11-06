@@ -4,6 +4,10 @@
 
 Cowsay MCP Server, providing ASCII art cow capabilities for LLMs. This implementation allows language models to generate fun ASCII art cows with custom messages.
 
+<a href="https://glama.ai/mcp/servers/@mrseanchow/cowsay-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@mrseanchow/cowsay-mcp/badge" alt="Cowsay Server MCP server" />
+</a>
+
 ## 🛠️ Tools
 
 - `cowsay`: Generate ASCII art with a cow saying your message
@@ -115,4 +119,3 @@ And many more! Use the `list_cows` tool to see all available characters.
 ## 📄 License
 
 MIT License - see [LICENSE](./LICENSE) file for details.
-
