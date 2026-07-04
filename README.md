@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/mrseanchow-cowsay-mcp-badge.png)](https://mseep.ai/app/mrseanchow-cowsay-mcp)
+
 # cowsay-mcp
 
 [![smithery badge](https://smithery.ai/badge/@mrseanchow/cowsay-mcp)](https://smithery.ai/server/@mrseanchow/cowsay-mcp) <a href="https://github.com/mrseanchow/cowsay-mcp/stargazers"><img src="https://img.shields.io/github/stars/mrseanchow/cowsay-mcp" alt="Github Stars"></a> <a href="https://github.com/mrseanchow/cowsay-mcp/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-purple" alt="License"></a> <a href="https://github.com/mrseanchow/cowsay-mcp/issues/new"><img src="https://img.shields.io/badge/Report a bug-Github-%231F80C0" alt="Report a bug"></a>
