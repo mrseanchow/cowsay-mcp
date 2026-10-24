@@ -1,6 +1,6 @@
 # cowsay-mcp
 
-[![smithery badge](https://smithery.ai/badge/@mrseanchow/cowsay-mcp)](https://smithery.ai/server/@mrseanchow/cowsay-mcp) <a href="https://github.com/mrseanchow/cowsay-mcp/stargazers"><img src="https://img.shields.io/github/stars/mrseanchow/cowsay-mcp" alt="Github Stars"></a> <a href="https://github.com/mrseanchow/cowsay-mcp/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-purple" alt="License"></a> <a href="https://github.com/mrseanchow/cowsay-mcp/issues/new"><img src="https://img.shields.io/badge/Report a bug-Github-%231F80C0" alt="Report a bug"></a>
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.mrseanchow/cowsay-mcp)](https://lightnow.ai/servers/io.github.mrseanchow/cowsay-mcp) <a href="https://github.com/mrseanchow/cowsay-mcp/stargazers"><img src="https://img.shields.io/github/stars/mrseanchow/cowsay-mcp" alt="Github Stars"></a> <a href="https://github.com/mrseanchow/cowsay-mcp/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-purple" alt="License"></a> <a href="https://github.com/mrseanchow/cowsay-mcp/issues/new"><img src="https://img.shields.io/badge/Report a bug-Github-%231F80C0" alt="Report a bug"></a>
 
 Cowsay MCP Server, providing ASCII art cow capabilities for LLMs. This implementation allows language models to generate fun ASCII art cows with custom messages.
 
